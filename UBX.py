@@ -191,7 +191,7 @@ if __name__ == '__main__':
         )
     args = parser.parse_args()
 
-    ser = serial.Serial('/dev/ttyAMA0', 9600, timeout=None)
+    ser = serial.Serial('/dev/ttyACM1', 115200, timeout=None)
     debug = (os.environ.get("DEBUG") is not None) or args.debug
 
     manager = Manager(ser, debug=debug)
@@ -213,7 +213,7 @@ if __name__ == '__main__':
         manager.waitUntilDone()
 
     if args.NMEA:
-        manager.setDumpNMEA(True)
+        manager.setDumpNMEA(False)
         manager.join()
     else:
         manager.shutdown()
