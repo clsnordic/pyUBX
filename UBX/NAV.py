@@ -54,3 +54,40 @@ class NAV:
                 axim = I2(7)
                 prRes = I4(8)
 
+    @addGet
+    class SVIN:
+
+        _id = 0x3B
+
+        class Fields:
+            version = U1(1)
+            reserved1 = U2(2)
+            reserved11 = U1(3)
+            iTow = U4(4)
+            dur = U4(5)
+            meanX = I4(6)
+            meanY = I4(7)
+            meanZ = I4(8)
+            meanXHP = I1(9)
+            meanYHP = I1(10)
+            meanZHP = I1(11)
+            reserved2 = U1(12)
+            meanAcc = U4(13)
+            obs = U4(14)
+            valid = U1(15)
+            active = U1(16)
+            reserved3 = U2(17)
+
+    @addGet
+    class STATUS:
+
+        _id = 0x03
+
+        class Fields:
+            iTow = U4(1)
+            gpsFix = U1(2)
+            flags = X1(3)
+            fixStat = X1(4)
+            flags2 = X1(5)
+            ttff = U4(6)
+            msss = U4(7)
